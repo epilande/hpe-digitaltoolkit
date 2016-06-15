@@ -19,7 +19,7 @@ export default class ResourcesTile extends Component {
     );
 
     const thumbnailStyles = {
-      backgroundImage: thumbnail
+      backgroundImage: `url(${thumbnail})`
     };
 
     return (
