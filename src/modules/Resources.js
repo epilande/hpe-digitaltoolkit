@@ -6,6 +6,7 @@ import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Tiles from 'grommet/components/Tiles';
 import Paragraph from 'grommet/components/Paragraph';
+import ResourcesTile from './ResourcesTile';
 
 const CLASS_ROOT = 'resources';
 
@@ -28,14 +29,14 @@ export default class Resources extends Component {
     }
 
     const resourceTiles = tiles.map((tile, key) => {
-      return <div key={key}>{tile.title}</div>;
+      return <ResourcesTile key={key} {...tile} />;
     });
 
     return (
-      <Box className={classes} pad={{vertical: "medium"}}>
+      <Box className={classes} pad={{vertical: 'medium'}}>
         <Heading tag="h3">{header}</Heading>
         {subHeaderMarkup}
-        <Tiles fill={true}>
+        <Tiles flush={false}>
           {resourceTiles}
         </Tiles>
       </Box>
@@ -50,7 +51,7 @@ Resources.propTypes = {
     thumbnail: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string
-  }))
+  })).isRequired
 };
 
 Resources.defaultProps = {
