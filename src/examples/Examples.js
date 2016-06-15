@@ -95,17 +95,17 @@ var Examples = React.createClass({
           <Resources
             tiles={[
               {
-                thumbnail: 'url(http://placehold.it/100x100)',
+                thumbnail: 'url(/docs/img/resource-img-1.png)',
                 title: 'Brochure',
                 description: 'Enable workplace productivity HPE Transformation Workshop'
               },
               {
-                thumbnail: 'url(http://placehold.it/100x100)',
+                thumbnail: 'url(/docs/img/resource-img-2.png)',
                 title: 'Solution Brief',
                 description: 'Digital Context Aware Solutions'
               },
               {
-                thumbnail: 'url(http://placehold.it/100x100)',
+                thumbnail: 'url(/docs/img/resource-img-3.png)',
                 title: 'Video -1:41',
                 description: 'Real Academia de Bellas Artes Ehances Experience with Mobile App'
               }
