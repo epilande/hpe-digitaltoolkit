@@ -36,7 +36,7 @@ export default class Resources extends Component {
       <Box className={classes} pad={{vertical: 'medium'}}>
         <Heading tag="h3">{header}</Heading>
         {subHeaderMarkup}
-        <Tiles flush={false}>
+        <Tiles flush={false} pad="none">
           {resourceTiles}
         </Tiles>
       </Box>

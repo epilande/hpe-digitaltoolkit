@@ -1,9 +1,13 @@
 .resources {
 
-  .tiles > .tile {
+  .tiles {
+    margin: -12px;
 
-    @include media-query(palm) {
-      flex-basis: 400px;
+    > .tile {
+
+      @include media-query(lap-and-up) {
+        flex-basis: 400px;
+      }
     }
   }
 }
