@@ -22,7 +22,7 @@ export default class Resources extends Component {
     let subHeaderMarkup;
     if (subHeader) {
       subHeaderMarkup = (
-        <Paragraph size="large" margin="none">
+        <Paragraph className={`${CLASS_ROOT}__subheader`} size="large">
           {subHeader}
         </Paragraph>
       );
