@@ -6,7 +6,6 @@ import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import Tile from 'grommet/components/Tile';
 import Paragraph from 'grommet/components/Paragraph';
-import Image from 'grommet/components/Image';
 
 const CLASS_ROOT = 'resources-tile';
 
@@ -19,10 +18,18 @@ export default class ResourcesTile extends Component {
       this.props.className
     );
 
+    const thumbnailStyles = {
+      backgroundImage: thumbnail
+    };
+
     return (
-      <Tile className={classes} direction="row">
-        <Image className={`${CLASS_ROOT}__image`} src={thumbnail}  />
-        <Box pad="medium">
+      <Tile className={classes} direction="row" responsive={false} align="start">
+        <Box
+          className={`${CLASS_ROOT}__thumbnail`}
+          style={thumbnailStyles}
+          flex={false}
+        />
+        <Box pad={{horizontal: 'medium', vertical: 'small'}}>
           <Heading tag="h6" margin="none">{title}</Heading>
           <Paragraph margin="none">{description}</Paragraph>
         </Box>

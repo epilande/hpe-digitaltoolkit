@@ -1,0 +1,9 @@
+.resources {
+
+  .tiles > .tile {
+
+    @include media-query(palm) {
+      flex-basis: 400px;
+    }
+  }
+}

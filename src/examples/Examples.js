@@ -93,21 +93,19 @@ var Examples = React.createClass({
         {this._loremIpsum()}
         <Box pad={{ horizontal: 'large', vertical: 'none' }}>
           <Resources
-            header="Resources"
-            subHeader="Accelerate service delivery with advanced compute performance that is truly optimized for core IT workloads."
             tiles={[
               {
-                thumbnail: 'http://placehold.it/100x100',
+                thumbnail: 'url(http://placehold.it/100x100)',
                 title: 'Brochure',
                 description: 'Enable workplace productivity HPE Transformation Workshop'
               },
               {
-                thumbnail: 'http://placehold.it/100x100',
+                thumbnail: 'url(http://placehold.it/100x100)',
                 title: 'Solution Brief',
                 description: 'Digital Context Aware Solutions'
               },
               {
-                thumbnail: 'http://placehold.it/100x100',
+                thumbnail: 'url(http://placehold.it/100x100)',
                 title: 'Video -1:41',
                 description: 'Real Academia de Bellas Artes Ehances Experience with Mobile App'
               }
