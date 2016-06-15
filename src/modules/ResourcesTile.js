@@ -30,7 +30,7 @@ export default class ResourcesTile extends Component {
           flex={false}
         />
         <Box pad={{horizontal: 'medium', vertical: 'small'}}>
-          <Heading tag="h6" margin="none">{title}</Heading>
+          <Heading tag="h6" margin="none" uppercase={true}>{title}</Heading>
           <Paragraph margin="none">{description}</Paragraph>
         </Box>
       </Tile>
