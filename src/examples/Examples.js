@@ -112,6 +112,25 @@ var Examples = React.createClass({
                 linkIcon={<PlayIcon />}
                 linkText="Watch Now"
               />
+              <Resources
+                tiles={[
+                  {
+                    thumbnail: '/docs/img/resource-img-1.png',
+                    title: 'Brochure',
+                    description: 'Enable workplace productivity HPE Transformation Workshop'
+                  },
+                  {
+                    thumbnail: '/docs/img/resource-img-2.png',
+                    title: 'Solution Brief',
+                    description: 'Digital Context Aware Solutions'
+                  },
+                  {
+                    thumbnail: '/docs/img/resource-img-3.png',
+                    title: 'Video -1:41',
+                    description: 'Real Academia de Bellas Artes Ehances Experience with Mobile App'
+                  }
+                ]}
+              />
             </AccordionPanel>
             <AccordionPanel panelTitle="Software Licensings and Managment">
               <Heading tag="h3" margin="none">
@@ -135,27 +154,6 @@ var Examples = React.createClass({
           </Accordion>
         </Box>
         {this._loremIpsum()}
-        <Box pad={{ horizontal: 'large', vertical: 'none' }}>
-          <Resources
-            tiles={[
-              {
-                thumbnail: '/docs/img/resource-img-1.png',
-                title: 'Brochure',
-                description: 'Enable workplace productivity HPE Transformation Workshop'
-              },
-              {
-                thumbnail: '/docs/img/resource-img-2.png',
-                title: 'Solution Brief',
-                description: 'Digital Context Aware Solutions'
-              },
-              {
-                thumbnail: '/docs/img/resource-img-3.png',
-                title: 'Video -1:41',
-                description: 'Real Academia de Bellas Artes Ehances Experience with Mobile App'
-              }
-            ]}
-          />
-        </Box>
       </div>
     );
   }
