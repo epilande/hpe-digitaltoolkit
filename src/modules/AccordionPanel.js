@@ -40,15 +40,23 @@ export default class AccordionPanel extends Component {
       panelControlIcon = <CloseIcon colorIndex="brand" />;
 
       panelContent = (
-        <Box full="horizontal" pad={{vertical: "medium"}}>
+        <Box full="horizontal" pad="medium">
           {children}
         </Box>
       );
     }
 
     return (
-      <ListItem className={classes} direction="column">
-        <Box full="horizontal" direction="row" justify="between" align="center" onClick={this._onClickPanel} responsive={false}>
+      <ListItem className={classes} direction="column" pad="none">
+        <Box
+          pad={{horizontal: 'medium', vertical: 'small'}}
+          full="horizontal"
+          direction="row"
+          justify="between"
+          align="center"
+          onClick={this._onClickPanel}
+          responsive={false}
+        >
           <Heading tag="h2" margin="small">{panelTitle}</Heading>
           {panelControlIcon}
         </Box>
