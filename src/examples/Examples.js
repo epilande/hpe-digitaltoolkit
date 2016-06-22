@@ -132,7 +132,7 @@ var Examples = React.createClass({
                 ]}
               />
             </AccordionPanel>
-            <AccordionPanel panelTitle="Software Licensings and Managment">
+            <AccordionPanel panelTitle="Software Licensings and Management">
               <Heading tag="h3" margin="none">
                 Manage control, compliance and cost through our value-added
                 Licensing, Advisory Services and Software Asset Management.
