@@ -1,5 +1,16 @@
 .grommet .accordion-panel {
 
+  &__content {
+    height: auto;
+    max-height: 0;
+    transition: max-height 0.5s;
+    overflow: hidden;
+  }
+
+  &--active .accordion-panel__content {
+    max-height: 50em;
+  }
+
   .heading,
   .paragraph {
     max-width: $size-medium;

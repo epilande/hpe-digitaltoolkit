@@ -30,20 +30,16 @@ export default class AccordionPanel extends Component {
 
     const classes = classnames(
       CLASS_ROOT,
-      this.props.className
+      this.props.className,
+      {
+        [`${CLASS_ROOT}--active`]: this.state.isOpen
+      }
     );
 
     let panelControlIcon = <OpenIcon colorIndex="brand" />;
-    let panelContent;
 
     if (this.state.isOpen) {
       panelControlIcon = <CloseIcon colorIndex="brand" />;
-
-      panelContent = (
-        <Box full="horizontal" pad="medium">
-          {children}
-        </Box>
-      );
     }
 
     return (
@@ -60,7 +56,13 @@ export default class AccordionPanel extends Component {
           <Heading tag="h2" margin="small">{panelTitle}</Heading>
           {panelControlIcon}
         </Box>
-        {panelContent}
+        <Box
+          className={`${CLASS_ROOT}__content`}
+          full="horizontal"
+          pad={{horizontal: 'medium'}}
+        >
+          {children}
+        </Box>
       </ListItem>
     );
   }
