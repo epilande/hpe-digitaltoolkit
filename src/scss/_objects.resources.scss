@@ -5,12 +5,11 @@
   }
 
   .tiles {
-    margin: -12px;
+    @include media-query(lap-and-up) {
+      margin: -12px;
 
-    > .tile {
-
-      @include media-query(lap-and-up) {
-        flex-basis: 400px;
+      > .tile {
+        flex-basis: 411px;
       }
     }
   }

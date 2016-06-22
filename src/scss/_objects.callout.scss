@@ -14,7 +14,9 @@
   }
 
   &__content {
-    max-width: $size-small;
+    @include media-query(lap-and-up) {
+      max-width: $size-small;
+    }
   }
 
   .heading--uppercase {
