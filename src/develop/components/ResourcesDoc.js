@@ -62,7 +62,19 @@ var ResourcesDoc = React.createClass({
           <h2>Resources Options</h2>
           <dl>
             <dt><code>tiles              {`[{thumbnail: , title: , description: }, ...]`}</code></dt>
-            <dd>An array of resource tiles.</dd>
+            <dd>An array of resource tiles. Required.</dd>
+          </dl>
+        </section>
+
+        <section>
+          <h2>ResourcesTile Options</h2>
+          <dl>
+            <dt><code>thumbnail          {'{string}'}</code></dt>
+            <dd>Url path to image. Required.</dd>
+            <dt><code>title              {'{string}'}</code></dt>
+            <dd>Resource title. Required.</dd>
+            <dt><code>description        {'{string}'}</code></dt>
+            <dd>Resource description. Required.</dd>
           </dl>
         </section>
 

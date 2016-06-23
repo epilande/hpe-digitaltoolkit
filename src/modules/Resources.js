@@ -48,9 +48,9 @@ Resources.propTypes = {
   header: PropTypes.string,
   subHeader: PropTypes.string,
   tiles: PropTypes.arrayOf(PropTypes.shape({
-    thumbnail: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string
+    thumbnail: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired
   })).isRequired
 };
 
