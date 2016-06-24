@@ -2,10 +2,10 @@
 
   .tiles {
     @include media-query(lap-and-up) {
-      margin: -12px;
+      margin: halve(-$inuit-base-spacing-unit);
 
       > .tile {
-        flex-basis: 411px;
+        flex-basis: $inuit-base-spacing-unit * 17;
       }
     }
   }

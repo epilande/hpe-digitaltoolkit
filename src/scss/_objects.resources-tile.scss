@@ -1,9 +1,9 @@
 .resources-tile {
-  background-color: #fff;
+  background-color: $background-color;
 
   &__thumbnail {
-    width: 100px;
-    height: 100px;
+    width: $graphic-small-size;
+    height: $graphic-small-size;
   }
 
   .heading--uppercase {
