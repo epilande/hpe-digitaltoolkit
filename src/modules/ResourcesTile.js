@@ -18,15 +18,11 @@ export default class ResourcesTile extends Component {
       this.props.className
     );
 
-    const thumbnailStyles = {
-      backgroundImage: `url(${thumbnail})`
-    };
-
     return (
       <Tile className={classes} direction="row" responsive={false} align="start">
         <Box
           className={`${CLASS_ROOT}__thumbnail`}
-          style={thumbnailStyles}
+          backgroundImage={`url(${thumbnail})`}
           flex={false}
         />
         <Box pad={{horizontal: 'medium', vertical: 'small'}}>
