@@ -22,7 +22,7 @@ export default class Resources extends Component {
     let subHeaderMarkup;
     if (subHeader) {
       subHeaderMarkup = (
-        <Paragraph className={`${CLASS_ROOT}__subheader`} size="large">
+        <Paragraph size="large" margin="none">
           {subHeader}
         </Paragraph>
       );
@@ -33,9 +33,11 @@ export default class Resources extends Component {
     });
 
     return (
-      <Box className={classes} pad={{vertical: 'medium'}}>
-        <Heading tag="h3">{header}</Heading>
-        {subHeaderMarkup}
+      <Box className={classes}>
+        <Box pad={{vertical: 'medium'}}>
+          <Heading tag="h3" margin="none">{header}</Heading>
+          {subHeaderMarkup}
+        </Box>
         <Tiles flush={false} pad="none">
           {resourceTiles}
         </Tiles>

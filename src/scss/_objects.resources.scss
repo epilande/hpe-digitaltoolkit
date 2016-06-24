@@ -1,9 +1,5 @@
 .resources {
 
-  &__subheader.paragraph {
-    margin-top: 0;
-  }
-
   .tiles {
     @include media-query(lap-and-up) {
       margin: -12px;
