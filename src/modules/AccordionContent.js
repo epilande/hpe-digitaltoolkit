@@ -10,15 +10,13 @@ export default class AccordionContent extends Component {
   componentWillEnter (callback) {
     const node = ReactDOM.findDOMNode(this);
     const contentHeight = node.clientHeight; // save height
-    node.classList.add('close');
+    node.classList.remove('animate');
+    node.style.height = 0;
     setTimeout(() => {
-      node.classList.add('animate-in');
+      node.classList.add('animate');
       node.style.height = `${contentHeight}px`;
-      node.classList.remove('close');
       callback();
     });
-
-    console.log('node.clientHeight: ', contentHeight);
   }
 
   componentDidEnter () {
@@ -27,11 +25,15 @@ export default class AccordionContent extends Component {
   }
 
   componentWillLeave (callback) {
-    // const node = ReactDOM.findDOMNode(this);
-    console.log('component exit');
-    // on complete, call callback, should match transition duration
-    // setTimeout(callback, 500);
-    callback();
+    const node = ReactDOM.findDOMNode(this);
+    const contentHeight = node.clientHeight; // save height
+    node.style.height = `${contentHeight}px`;
+    setTimeout(() => {
+      node.classList.add('animate');
+      node.style.height = 0;
+      // on complete, call callback, should match transition duration
+      setTimeout(callback, 500);
+    });
   }
 
   render () {
