@@ -1,15 +1,15 @@
 .grommet .accordion-panel {
 
-  &__content {
-    height: auto;
-    max-height: 0;
-    transition: max-height 0.5s;
-    overflow: hidden;
-  }
+  // &__content {
+  //   height: auto;
+  //   max-height: 0;
+  //   transition: max-height 0.5s;
+  //   overflow: hidden;
+  // }
 
-  &--active .accordion-panel__content {
-    max-height: 50em;
-  }
+  // &--active .accordion-panel__content {
+  //   max-height: 50em;
+  // }
 
   .heading,
   .paragraph {
@@ -20,3 +20,17 @@
     outline: none;
   }
 }
+
+.grommet .accordion-panel {
+  overflow: hidden;
+
+  &.animate-in {
+    transition: height 0.5s ease-out;
+  }
+
+  &.close {
+    height: 0;
+  }
+}
+
+

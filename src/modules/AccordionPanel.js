@@ -1,12 +1,14 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
 import React, { Component, PropTypes } from 'react';
+import TransitionGroup from 'react-addons-transition-group';
 import classnames from 'classnames';
 import Box from 'grommet/components/Box';
 import Heading from 'grommet/components/Heading';
 import ListItem from 'grommet/components/ListItem';
 import OpenIcon from 'grommet/components/icons/base/Add';
 import CloseIcon from 'grommet/components/icons/base/Subtract';
+import AccordionContent from './AccordionContent';
 
 const CLASS_ROOT = 'accordion-panel';
 
@@ -57,11 +59,12 @@ export default class AccordionPanel extends Component {
           {panelControlIcon}
         </Box>
         <Box
-          className={`${CLASS_ROOT}__content`}
           full="horizontal"
           pad={{horizontal: 'medium'}}
         >
-          {children}
+          <TransitionGroup>
+            {this.state.isOpen && <AccordionContent children={children} />}
+          </TransitionGroup>
         </Box>
       </ListItem>
     );
