@@ -20,8 +20,8 @@ export default class AccordionContent extends Component {
   }
 
   componentDidEnter () {
-    // const node = ReactDOM.findDOMNode(this);
-    // node.style.height = '';
+    const node = ReactDOM.findDOMNode(this);
+    node.style.height = '';
   }
 
   componentWillLeave (callback) {
