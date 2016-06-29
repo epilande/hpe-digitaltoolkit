@@ -15,7 +15,7 @@ export default class AccordionContent extends Component {
     setTimeout(() => {
       node.classList.add('animate');
       node.style.height = `${contentHeight}px`;
-      callback();
+      setTimeout(callback, parseFloat(getComputedStyle(node).transitionDuration) * 1000);
     });
   }
 
@@ -32,7 +32,7 @@ export default class AccordionContent extends Component {
       node.classList.add('animate');
       node.style.height = 0;
       // on complete, call callback, should match transition duration
-      setTimeout(callback, 500);
+      setTimeout(callback, parseFloat(getComputedStyle(node).transitionDuration) * 1000);
     });
   }
 
