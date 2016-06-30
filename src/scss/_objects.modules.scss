@@ -1,11 +1,12 @@
 @import 'objects.marquee';
+@import 'objects.marquee-parallax';
 @import 'objects.accordion';
 @import 'objects.accordion-panel';
 @import 'objects.callout';
 @import 'objects.resources';
 @import 'objects.resources-tile';
 
-.grommet.app {
+.grommet.grommetux-app {
   position: relative;
   overflow: hidden;
 
