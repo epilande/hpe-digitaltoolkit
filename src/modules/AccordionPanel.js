@@ -7,7 +7,7 @@ import Heading from 'grommet/components/Heading';
 import ListItem from 'grommet/components/ListItem';
 import OpenIcon from 'grommet/components/icons/base/Add';
 import CloseIcon from 'grommet/components/icons/base/Subtract';
-import Collapsible from './Collapsible';
+import { VelocityTransitionGroup } from 'velocity-react';
 
 const CLASS_ROOT = 'accordion-panel';
 
@@ -61,7 +61,9 @@ export default class AccordionPanel extends Component {
           full="horizontal"
           pad={{horizontal: 'medium'}}
         >
-          <Collapsible isOpen={this.state.isOpen} children={children} />
+          <VelocityTransitionGroup enter={{animation: "slideDown"}} leave={{animation: "slideUp"}}>
+            {this.state.isOpen && <div>{children}</div>}
+          </VelocityTransitionGroup>
         </Box>
       </ListItem>
     );
