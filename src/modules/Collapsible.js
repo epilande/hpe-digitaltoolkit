@@ -1,15 +1,16 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import TransitionGroup from 'react-addons-transition-group';
 import classnames from 'classnames';
 
-const CLASS_ROOT = 'accordion-panel';
+const CLASS_ROOT = 'collapsible';
 
-export default class AccordionContent extends Component {
+class Collapse extends Component {
   componentWillEnter (callback) {
     const node = ReactDOM.findDOMNode(this);
-    const contentHeight = node.clientHeight; // save height
+    const contentHeight = node.clientHeight;
     node.classList.remove('animate');
     node.style.height = 0;
     setTimeout(() => {
@@ -26,32 +27,35 @@ export default class AccordionContent extends Component {
 
   componentWillLeave (callback) {
     const node = ReactDOM.findDOMNode(this);
-    const contentHeight = node.clientHeight; // save height
+    const contentHeight = node.clientHeight;
     node.style.height = `${contentHeight}px`;
     setTimeout(() => {
       node.classList.add('animate');
       node.style.height = 0;
-      // on complete, call callback, should match transition duration
       setTimeout(callback, parseFloat(getComputedStyle(node).transitionDuration) * 1000);
     });
   }
 
-  render () {
-    const { children } = this.props;
-
+  render() {
     const classes = classnames(
       CLASS_ROOT,
       this.props.className
     );
 
+    return <div {...this.props} className={classes} />;
+  }
+};
+
+class Collapsible extends Component {
+  render () {
     return (
-      <div className={classes} >
-        {children}
-      </div>
+      <TransitionGroup>
+        {this.props.isOpen &&
+          <Collapse {...this.props} />
+        }
+      </TransitionGroup>
     );
   }
 };
 
-AccordionContent.propTypes = {
-  children: PropTypes.element.isRequired
-};
+export default Collapsible;
