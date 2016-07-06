@@ -61,7 +61,10 @@ export default class AccordionPanel extends Component {
           full="horizontal"
           pad={{horizontal: 'medium'}}
         >
-          <VelocityTransitionGroup enter={{animation: "slideDown"}} leave={{animation: "slideUp"}}>
+          <VelocityTransitionGroup
+            enter={{animation: 'slideDown', duration: 500}}
+            leave={{animation: 'slideUp', duration: 500}}
+          >
             {this.state.isOpen && <div>{children}</div>}
           </VelocityTransitionGroup>
         </Box>
