@@ -4,6 +4,7 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import Box from 'grommet/components/Box';
+import HPELogo from '../HPELogo';
 
 const CLASS_ROOT = 'footer';
 
@@ -25,8 +26,8 @@ export default class Footer extends Component {
           links
         </Box>
         <Box direction="row" align="center" justify="between" responsive={false}>
-          <Box>
-            logo
+          <Box className={`${CLASS_ROOT}__logo`}>
+            <HPELogo />
           </Box>
           <Box>
             social links
