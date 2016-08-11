@@ -22,6 +22,7 @@ var WorldMapDoc = require('./components/WorldMapDoc');
 var AccordionDoc = require('./components/AccordionDoc');
 var ContentCardDoc = require('./components/ContentCardDoc');
 var StackDoc = require('./components/StackDoc');
+var FooterDoc = require('./components/FooterDoc');
 
 //hjjs configuration
 var hljs = require('highlight.js/lib/highlight');
@@ -53,6 +54,7 @@ var CONTENTS = [
       {route: 'develop_accordion', label: 'Accordion', component: AccordionDoc},
       {route: 'develop_content-card', label: 'ContentCard', component: ContentCardDoc},
       {route: 'develop_stack', label: 'Stack', component: StackDoc},
+      {route: 'develop_footer', label: 'Footer', component: FooterDoc},
       {route: 'develop_world-map', label: 'WorldMap', component: WorldMapDoc}
     ]
   }
