@@ -20,8 +20,33 @@ export default class Footer extends Component {
     );
 
     return (
-      <Box className={classes} {...props}>
-        Testing
+      <Box className={classes} colorIndex="light-2" {...props}>
+        <Box direction="row" responsive={false}>
+          links
+        </Box>
+        <Box direction="row" align="center" justify="between" responsive={false}>
+          <Box>
+            logo
+          </Box>
+          <Box>
+            social links
+          </Box>
+        </Box>
+        <Box direction="row" justify="end" responsive={false}>
+          <a href="#">
+            United States
+          </a>
+          <a href="#">
+            Privacy
+          </a>
+          <a href="#">
+            Terms of Use
+          </a>
+          <a href="#">
+            Cookies
+          </a>
+          2016 Hewlett Packard Enterprise
+        </Box>
       </Box>
     );
   }
