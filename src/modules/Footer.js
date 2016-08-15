@@ -26,12 +26,51 @@ export default class Footer extends Component {
     return (
       <Box className={classes} colorIndex="light-2" {...props}>
         <Box direction="row" responsive={false}>
-          links
+          <ul>
+            <li>
+              Corporate
+              <ul>
+                <li>Accessibility</li>
+                <li>Careers</li>
+                <li>Contact Us</li>
+                <li>Corporate Responsibility Events</li>
+                <li>Hewlett Packard Labs</li>
+                <li>Investor Relations Leadership</li>
+                <li>Newsroom</li>
+                <li>Sitemap</li>
+              </ul>
+            </li>
+            <li>
+              Partners
+              <ul>
+                <li>Partners Program</li>
+                <li>Find a Partner</li>
+              </ul>
+            </li>
+            <li>
+              Communities
+              <ul>
+                <li>Developer Forums</li>
+                <li>Enterprise Business</li>
+              </ul>
+            </li>
+            <li>
+              Customer Resources
+              <ul>
+                <li>Enterprise Store</li>
+                <li>Public Sector Store</li>
+                <li>Education &amp; Training</li>
+                <li>Email Signup</li>
+              </ul>
+            </li>
+          </ul>
         </Box>
         <Box
           direction="row"
           align="start"
           justify="between"
+          separator="top"
+          pad={{vertical: 'medium'}}
           responsive={false}
         >
           <Box className={`${CLASS_ROOT}__logo`}>
