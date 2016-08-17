@@ -28,8 +28,8 @@ export default class Footer extends Component {
     return (
       <Box className={classes} colorIndex="light-2" {...props}>
         <Box direction="row" responsive={false}>
-          <Accordion icon={false}>
-            <AccordionPanel heading="Corporate">
+          <Accordion icon={false} openMulti={true} disabled={true}>
+            <AccordionPanel heading="Corporate" active={true}>
               <ul>
                 <li>Accessibility</li>
                 <li>Careers</li>
@@ -41,19 +41,19 @@ export default class Footer extends Component {
                 <li>Sitemap</li>
               </ul>
             </AccordionPanel>
-            <AccordionPanel heading="Partners">
+            <AccordionPanel heading="Partners" active={true}>
               <ul>
                 <li>Partners Program</li>
                 <li>Find a Partner</li>
               </ul>
             </AccordionPanel>
-            <AccordionPanel heading="Communities">
+            <AccordionPanel heading="Communities" active={true}>
               <ul>
                 <li>Developer Forums</li>
                 <li>Enterprise Business</li>
               </ul>
             </AccordionPanel>
-            <AccordionPanel heading="Customer Resources">
+            <AccordionPanel heading="Customer Resources" active={true}>
               <ul>
                 <li>Enterprise Store</li>
                 <li>Public Sector Store</li>
