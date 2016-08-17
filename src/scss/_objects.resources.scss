@@ -1,10 +1,10 @@
 .resources {
 
-  .tiles {
+  .grommetux-tiles {
     @include media-query(lap-and-up) {
       margin: halve(-$inuit-base-spacing-unit);
 
-      > .tile {
+      > .grommetux-tile {
         flex-basis: $inuit-base-spacing-unit * 17;
       }
     }

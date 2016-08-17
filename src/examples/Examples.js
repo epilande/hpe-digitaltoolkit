@@ -15,7 +15,6 @@ var ContentCard = require('../modules/ContentCard');
 var MarqueeParallax = require('../modules/MarqueeParallax');
 var Accordion = require('../modules/Accordion');
 var AccordionPanel = require('../modules/AccordionPanel');
-var Callout = require('../modules/Callout');
 var Resources = require('../modules/Resources');
 var Header = require('./Header');
 
