@@ -31,34 +31,34 @@ export default class Footer extends Component {
           <Accordion icon={false} openMulti={true} disabled={true}>
             <AccordionPanel heading="Corporate" active={true}>
               <ul>
-                <li>Accessibility</li>
-                <li>Careers</li>
-                <li>Contact Us</li>
-                <li>Corporate Responsibility Events</li>
-                <li>Hewlett Packard Labs</li>
-                <li>Investor Relations Leadership</li>
-                <li>Newsroom</li>
-                <li>Sitemap</li>
+                <li><a href="#">Accessibility</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Corporate Responsibility Events</a></li>
+                <li><a href="#">Hewlett Packard Labs</a></li>
+                <li><a href="#">Investor Relations Leadership</a></li>
+                <li><a href="#">Newsroom</a></li>
+                <li><a href="#">Sitemap</a></li>
               </ul>
             </AccordionPanel>
             <AccordionPanel heading="Partners" active={true}>
               <ul>
-                <li>Partners Program</li>
-                <li>Find a Partner</li>
+                <li><a href="#">Partners Program</a></li>
+                <li><a href="#">Find a Partner</a></li>
               </ul>
             </AccordionPanel>
             <AccordionPanel heading="Communities" active={true}>
               <ul>
-                <li>Developer Forums</li>
-                <li>Enterprise Business</li>
+                <li><a href="#">Developer Forums</a></li>
+                <li><a href="#">Enterprise Business</a></li>
               </ul>
             </AccordionPanel>
             <AccordionPanel heading="Customer Resources" active={true}>
               <ul>
-                <li>Enterprise Store</li>
-                <li>Public Sector Store</li>
-                <li>Education &amp; Training</li>
-                <li>Email Signup</li>
+                <li><a href="#">Enterprise Store</a></li>
+                <li><a href="#">Public Sector Store</a></li>
+                <li><a href="#">Education &amp; Training</a></li>
+                <li><a href="#">Email Signup</a></li>
               </ul>
             </AccordionPanel>
           </Accordion>
