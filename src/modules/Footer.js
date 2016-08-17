@@ -56,33 +56,51 @@ export default class Footer extends Component {
     return (
       <Box className={classes} colorIndex="light-2" {...props}>
         <Box direction="row" responsive={false}>
-            <AccordionPanel heading="Corporate" active={true}>
           <Accordion icon={false} openMulti={accordionDisabled}
             disabled={accordionDisabled}>
+            <AccordionPanel
+              heading="Corporate"
+              active={accordionDisabled}
+              separator={accordionDisabled ? 'none' : 'bottom'}
+            >
               <ul>
                 <li><a href="#">Accessibility</a></li>
                 <li><a href="#">Careers</a></li>
                 <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Corporate Responsibility Events</a></li>
+                <li><a href="#">Corporate Responsibility</a></li>
+                <li><a href="#">Events</a></li>
                 <li><a href="#">Hewlett Packard Labs</a></li>
-                <li><a href="#">Investor Relations Leadership</a></li>
+                <li><a href="#">Investor Relations</a></li>
+                <li><a href="#">Leadership</a></li>
                 <li><a href="#">Newsroom</a></li>
                 <li><a href="#">Sitemap</a></li>
               </ul>
             </AccordionPanel>
-            <AccordionPanel heading="Partners" active={true}>
+            <AccordionPanel
+              heading="Partners"
+              active={accordionDisabled}
+              separator={accordionDisabled ? 'none' : 'bottom'}
+            >
               <ul>
                 <li><a href="#">Partners Program</a></li>
                 <li><a href="#">Find a Partner</a></li>
               </ul>
             </AccordionPanel>
-            <AccordionPanel heading="Communities" active={true}>
+            <AccordionPanel
+              heading="Communities"
+              active={accordionDisabled}
+              separator={accordionDisabled ? 'none' : 'bottom'}
+            >
               <ul>
                 <li><a href="#">Developer Forums</a></li>
                 <li><a href="#">Enterprise Business</a></li>
               </ul>
             </AccordionPanel>
-            <AccordionPanel heading="Customer Resources" active={true}>
+            <AccordionPanel
+              heading="Customer Resources"
+              active={accordionDisabled}
+              separator={accordionDisabled ? 'none' : 'bottom'}
+            >
               <ul>
                 <li><a href="#">Enterprise Store</a></li>
                 <li><a href="#">Public Sector Store</a></li>
