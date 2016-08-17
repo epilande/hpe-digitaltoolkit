@@ -116,7 +116,6 @@ export default class Footer extends Component {
           justify="between"
           separator="top"
           pad={{vertical: 'medium'}}
-          responsive={false}
         >
           <Box className={`${CLASS_ROOT}__logo`}>
             <HPELogo />
@@ -125,26 +124,26 @@ export default class Footer extends Component {
             className={`${CLASS_ROOT}__social-icon`}
             direction="row"
             pad={{between: 'medium'}}
+            responsive={false}
           >
             <SocialLinkedinIcon />
             <SocialTwitterIcon />
             <SocialFacebookIcon />
           </Box>
         </Box>
-        <Box direction="row" justify="end" responsive={false}>
-          <a href="#">
-            United States
-          </a>
-          <a href="#">
-            Privacy
-          </a>
-          <a href="#">
-            Terms of Use
-          </a>
-          <a href="#">
-            Cookies
-          </a>
-          2016 Hewlett Packard Enterprise
+        <Box
+          className={`${CLASS_ROOT}__legal`}
+          direction="row"
+          justify="end"
+          responsive={false}
+        >
+          <ul>
+            <li><a href="#">United States</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Cookies</a></li>
+            <li>2016 Hewlett Packard Enterprise</li>
+          </ul>
         </Box>
       </Box>
     );

@@ -1,4 +1,4 @@
-.footer {
+.grommet .footer {
 
   &__logo {
     width: $inuit-base-spacing-unit * 5.5;
@@ -36,6 +36,31 @@
   ul {
     margin: 0;
     list-style: none;
+  }
+
+  .footer__legal {
+    li {
+      display: inline-block;
+      margin-right: 5px;
+      font-size: 14px;
+
+      &:after {
+        content: '|';
+        margin-left: 5px;
+      }
+
+      &:last-child {
+        margin-right: 0;
+
+        &:after {
+          content: '';
+        }
+      }
+
+      > a {
+        text-decoration: none;
+      }
+    }
   }
 
 }
