@@ -3,6 +3,7 @@
 // import React, { Component, PropTypes } from 'react';
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import Responsive from 'grommet/utils/Responsive';
 import Box from 'grommet/components/Box';
 import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
@@ -14,11 +15,38 @@ import HPELogo from '../HPELogo';
 const CLASS_ROOT = 'footer';
 
 export default class Footer extends Component {
+  constructor () {
+    super();
+    this._onResponsive = this._onResponsive.bind(this);
+    this.state = {
+      accordionDisabled: true
+    };
+  }
+
+  componentDidMount () {
+    this._responsive = Responsive.start(this._onResponsive);
+  }
+
+  componentWillUnmount () {
+    if (this._responsive) {
+      this._responsive.stop();
+    }
+  }
+
+  _onResponsive (small) {
+    if (small) {
+      this.setState({accordionDisabled: false});
+    } else {
+      this.setState({accordionDisabled: true});
+    }
+  }
+
   render () {
     const {
       className,
       ...props
     } = this.props;
+    const { accordionDisabled } = this.state;
 
     const classes = classnames(
       CLASS_ROOT,
@@ -28,8 +56,9 @@ export default class Footer extends Component {
     return (
       <Box className={classes} colorIndex="light-2" {...props}>
         <Box direction="row" responsive={false}>
-          <Accordion icon={false} openMulti={true} disabled={true}>
             <AccordionPanel heading="Corporate" active={true}>
+          <Accordion icon={false} openMulti={accordionDisabled}
+            disabled={accordionDisabled}>
               <ul>
                 <li><a href="#">Accessibility</a></li>
                 <li><a href="#">Careers</a></li>
