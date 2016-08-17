@@ -9,10 +9,14 @@
   }
 
   .grommetux-header {
-    padding: 0;
-    min-height: auto;
+    padding: 24px;
     font-size: $menu-font-size;
     font-weight: 600;
+
+    @include media-query(lap-and-up) {
+      min-height: auto;
+      padding: 0;
+    }
   }
 
   .grommetux-list {
@@ -21,13 +25,17 @@
     flex-wrap: wrap;
 
     > .grommetux-list-item {
-      width: 200px;
-      margin-bottom: 24px;
-      padding-right: 24px;
+      width: 100%;
       line-height: 34px;
 
-      @include media-query(palm) {
-        width: 100%;
+      @include media-query(lap-and-up) {
+        width: 200px;
+        margin-bottom: 24px;
+        padding-right: 24px;
+      }
+
+      &:last-child {
+        border-bottom: none;
       }
     }
   }
@@ -38,6 +46,13 @@
 
     a:not(.grommetux-anchor) {
       text-decoration: none;
+    }
+  }
+
+  .grommetux-collapsible ul {
+    @include media-query(palm) {
+      padding: 12px 24px;
+      background: #fff;
     }
   }
 

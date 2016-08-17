@@ -27,7 +27,7 @@ export default class FooterDoc extends Component {
           <h2>Examples</h2>
 
           <Example name="Default" code={
-            <Footer />
+            <Footer pad="medium" />
           } />
         </section>
       </DocsArticle>
