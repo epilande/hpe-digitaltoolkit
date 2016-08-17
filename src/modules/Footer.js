@@ -4,6 +4,8 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
 import Box from 'grommet/components/Box';
+import Accordion from 'grommet/components/Accordion';
+import AccordionPanel from 'grommet/components/AccordionPanel';
 import SocialTwitterIcon from 'grommet/components/icons/base/SocialTwitter';
 import SocialFacebookIcon from 'grommet/components/icons/base/SocialFacebook';
 import SocialLinkedinIcon from 'grommet/components/icons/base/SocialLinkedin';
@@ -26,9 +28,8 @@ export default class Footer extends Component {
     return (
       <Box className={classes} colorIndex="light-2" {...props}>
         <Box direction="row" responsive={false}>
-          <ul>
-            <li>
-              Corporate
+          <Accordion icon={false}>
+            <AccordionPanel heading="Corporate">
               <ul>
                 <li>Accessibility</li>
                 <li>Careers</li>
@@ -39,31 +40,28 @@ export default class Footer extends Component {
                 <li>Newsroom</li>
                 <li>Sitemap</li>
               </ul>
-            </li>
-            <li>
-              Partners
+            </AccordionPanel>
+            <AccordionPanel heading="Partners">
               <ul>
                 <li>Partners Program</li>
                 <li>Find a Partner</li>
               </ul>
-            </li>
-            <li>
-              Communities
+            </AccordionPanel>
+            <AccordionPanel heading="Communities">
               <ul>
                 <li>Developer Forums</li>
                 <li>Enterprise Business</li>
               </ul>
-            </li>
-            <li>
-              Customer Resources
+            </AccordionPanel>
+            <AccordionPanel heading="Customer Resources">
               <ul>
                 <li>Enterprise Store</li>
                 <li>Public Sector Store</li>
                 <li>Education &amp; Training</li>
                 <li>Email Signup</li>
               </ul>
-            </li>
-          </ul>
+            </AccordionPanel>
+          </Accordion>
         </Box>
         <Box
           direction="row"
