@@ -7,4 +7,36 @@
       height: 100%;
     }
   }
+
+  .grommetux-header {
+    padding: 0;
+    min-height: auto;
+    font-size: $menu-font-size;
+    font-weight: 600;
+  }
+
+  .grommetux-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    > .grommetux-list-item {
+      width: 25%;
+      min-width: 200px;
+      max-width: 300px;
+      margin-bottom: 24px;
+      padding-right: 24px;
+      line-height: 34px;
+
+      a {
+        text-decoration: none;
+      }
+    }
+  }
+
+  ul {
+    margin: 0;
+    list-style: none;
+  }
+
 }
+
