@@ -10,7 +10,7 @@ import AccordionPanel from 'grommet/components/AccordionPanel';
 import SocialTwitterIcon from 'grommet/components/icons/base/SocialTwitter';
 import SocialFacebookIcon from 'grommet/components/icons/base/SocialFacebook';
 import SocialLinkedinIcon from 'grommet/components/icons/base/SocialLinkedin';
-import HPELogo from '../HPELogo';
+import Logo from '../examples/Logo';
 
 const CLASS_ROOT = 'footer';
 
@@ -119,7 +119,7 @@ export default class Footer extends Component {
           pad={{vertical: 'medium'}}
         >
           <Box className={`${CLASS_ROOT}__logo`}>
-            <HPELogo />
+            <Logo />
           </Box>
           <Box
             direction="row"
