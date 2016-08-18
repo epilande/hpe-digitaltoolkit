@@ -3,8 +3,8 @@
   &__logo {
     width: $inuit-base-spacing-unit * 5.5;
 
-    svg {
-      height: 100%;
+    @include media-query(palm) {
+      margin-bottom: 24px;
     }
   }
 
@@ -57,7 +57,17 @@
     }
   }
 
+  .footer__social {
+    @include media-query(palm) {
+      padding: 24px;
+    }
+  }
+
   .footer__legal {
+    @include media-query(palm) {
+      padding: 0 24px 24px;
+    }
+
     li {
       display: inline-block;
       margin-right: 5px;

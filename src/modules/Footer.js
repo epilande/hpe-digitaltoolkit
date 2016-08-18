@@ -111,6 +111,7 @@ export default class Footer extends Component {
           </Accordion>
         </Box>
         <Box
+          className={`${CLASS_ROOT}__social`}
           direction="row"
           align="start"
           justify="between"
@@ -121,7 +122,6 @@ export default class Footer extends Component {
             <HPELogo />
           </Box>
           <Box
-            className={`${CLASS_ROOT}__social-icon`}
             direction="row"
             pad={{between: 'medium'}}
             responsive={false}
