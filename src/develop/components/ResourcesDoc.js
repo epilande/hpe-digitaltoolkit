@@ -63,7 +63,7 @@ var ResourcesDoc = React.createClass({
         <section>
           <h2>Resources Options</h2>
           <dl>
-            <dt><code>tiles              {`[{thumbnail: , title: , description: }, ...]`}</code></dt>
+            <dt><code>tiles              {`[{thumbnail: , title: , description: , link: }, ...]`}</code></dt>
             <dd>An array of resource tiles. Required.</dd>
           </dl>
         </section>
@@ -77,6 +77,8 @@ var ResourcesDoc = React.createClass({
             <dd>Resource title. Required.</dd>
             <dt><code>description        {'{string}'}</code></dt>
             <dd>Resource description. Required.</dd>
+            <dt><code>link               {'{string}'}</code></dt>
+            <dd>URL where the link should go.</dd>
           </dl>
         </section>
 
