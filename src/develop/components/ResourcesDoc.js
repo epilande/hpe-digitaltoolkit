@@ -36,12 +36,14 @@ var ResourcesDoc = React.createClass({
           {
             thumbnail: '/docs/img/resource-img-1.png',
             title: 'Brochure',
-            description: 'Enable workplace productivity HPE Transformation Workshop'
+            description: 'Enable workplace productivity HPE Transformation Workshop',
+            link: '/docs/hpe/develop/resources'
           },
           {
             thumbnail: '/docs/img/resource-img-2.png',
             title: 'Solution Brief',
-            description: 'Digital Context Aware Solutions'
+            description: 'Digital Context Aware Solutions',
+            onClick: () => console.log('Hello')
           },
           {
             thumbnail: '/docs/img/resource-img-3.png',
