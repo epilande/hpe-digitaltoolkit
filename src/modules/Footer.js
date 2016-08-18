@@ -7,10 +7,6 @@ import Responsive from 'grommet/utils/Responsive';
 import Box from 'grommet/components/Box';
 import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
-import SocialTwitterIcon from 'grommet/components/icons/base/SocialTwitter';
-import SocialFacebookIcon from 'grommet/components/icons/base/SocialFacebook';
-import SocialLinkedinIcon from 'grommet/components/icons/base/SocialLinkedin';
-import Logo from '../examples/Logo';
 
 const CLASS_ROOT = 'footer';
 
@@ -44,6 +40,10 @@ export default class Footer extends Component {
   render () {
     const {
       className,
+      directory,
+      legal,
+      logo,
+      social,
       ...props
     } = this.props;
     const { accordionDisabled } = this.state;
@@ -56,58 +56,33 @@ export default class Footer extends Component {
     return (
       <Box className={classes} colorIndex="light-2" {...props}>
         <Box direction="row" responsive={false}>
-          <Accordion icon={false} openMulti={accordionDisabled}
-            disabled={accordionDisabled}>
-            <AccordionPanel
-              heading="Corporate"
-              active={accordionDisabled}
-              separator={accordionDisabled ? 'none' : 'bottom'}
-            >
-              <ul>
-                <li><a href="#">Accessibility</a></li>
-                <li><a href="#">Careers</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Corporate Responsibility</a></li>
-                <li><a href="#">Events</a></li>
-                <li><a href="#">Hewlett Packard Labs</a></li>
-                <li><a href="#">Investor Relations</a></li>
-                <li><a href="#">Leadership</a></li>
-                <li><a href="#">Newsroom</a></li>
-                <li><a href="#">Sitemap</a></li>
-              </ul>
-            </AccordionPanel>
-            <AccordionPanel
-              heading="Partners"
-              active={accordionDisabled}
-              separator={accordionDisabled ? 'none' : 'bottom'}
-            >
-              <ul>
-                <li><a href="#">Partners Program</a></li>
-                <li><a href="#">Find a Partner</a></li>
-              </ul>
-            </AccordionPanel>
-            <AccordionPanel
-              heading="Communities"
-              active={accordionDisabled}
-              separator={accordionDisabled ? 'none' : 'bottom'}
-            >
-              <ul>
-                <li><a href="#">Developer Forums</a></li>
-                <li><a href="#">Enterprise Business</a></li>
-              </ul>
-            </AccordionPanel>
-            <AccordionPanel
-              heading="Customer Resources"
-              active={accordionDisabled}
-              separator={accordionDisabled ? 'none' : 'bottom'}
-            >
-              <ul>
-                <li><a href="#">Enterprise Store</a></li>
-                <li><a href="#">Public Sector Store</a></li>
-                <li><a href="#">Education &amp; Training</a></li>
-                <li><a href="#">Email Signup</a></li>
-              </ul>
-            </AccordionPanel>
+          <Accordion
+            icon={false}
+            openMulti={accordionDisabled}
+            disabled={accordionDisabled}
+          >
+            {
+              directory.map((column) => (
+                <AccordionPanel
+                  key={column.header}
+                  heading={column.header}
+                  active={accordionDisabled}
+                  separator={accordionDisabled ? 'none' : 'bottom'}
+                >
+                  <ul>
+                    {
+                      column.links.map((link) => {
+                        return (
+                          <li key={link.title}>
+                            <a href={link.url}>{link.title}</a>
+                          </li>
+                        );
+                      })
+                    }
+                  </ul>
+                </AccordionPanel>
+              ))
+            }
           </Accordion>
         </Box>
         <Box
@@ -118,33 +93,51 @@ export default class Footer extends Component {
           separator="top"
           pad={{vertical: 'medium'}}
         >
-          <Box className={`${CLASS_ROOT}__logo`}>
-            <Logo />
-          </Box>
+          { logo &&
+            <Box className={`${CLASS_ROOT}__logo`}>
+              <a href={logo.url}>
+                {logo.icon}
+              </a>
+            </Box>
+          }
+          { social &&
+            <Box
+              direction="row"
+              pad={{between: 'medium'}}
+              responsive={false}
+            >
+              {
+                social.map((item, key) => (
+                  <a key={`social-${key}`} href={item.url}>{item.icon}</a>
+                ))
+              }
+            </Box>
+          }
+        </Box>
+        { legal &&
           <Box
+            className={`${CLASS_ROOT}__legal`}
             direction="row"
-            pad={{between: 'medium'}}
+            justify="end"
             responsive={false}
           >
-            <SocialLinkedinIcon />
-            <SocialTwitterIcon />
-            <SocialFacebookIcon />
+            <ul>
+              {
+                legal.map((item) => {
+                  let content = item.title;
+                  if (item.url) {
+                    content = <a href={item.url}>{item.icon}{item.title}</a>;
+                  }
+                  return (
+                    <li key={item.title}>
+                      {content}
+                    </li>
+                  );
+                })
+              }
+            </ul>
           </Box>
-        </Box>
-        <Box
-          className={`${CLASS_ROOT}__legal`}
-          direction="row"
-          justify="end"
-          responsive={false}
-        >
-          <ul>
-            <li><a href="#">United States</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms of Use</a></li>
-            <li><a href="#">Cookies</a></li>
-            <li>2016 Hewlett Packard Enterprise</li>
-          </ul>
-        </Box>
+        }
       </Box>
     );
   }
