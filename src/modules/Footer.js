@@ -1,7 +1,6 @@
 // (C) Copyright 2014-2015 Hewlett Packard Enterprise Development LP
 
-// import React, { Component, PropTypes } from 'react';
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import Responsive from 'grommet/utils/Responsive';
 import Box from 'grommet/components/Box';
@@ -65,42 +64,43 @@ export default class Footer extends Component {
         colorIndex={darkTheme ? DARK_COLORINDEX : LIGHT_COLORINDEX}
         {...props}
       >
-        <Box direction="row" responsive={false}>
-          <Accordion
-            icon={false}
-            openMulti={accordionDisabled}
-            disabled={accordionDisabled}
-          >
-            {
-              directory.map((column) => (
-                <AccordionPanel
-                  key={column.header}
-                  heading={column.header}
-                  active={accordionDisabled}
-                  separator={accordionDisabled ? 'none' : 'bottom'}
-                >
-                  <ul>
-                    {
-                      column.links.map((link) => {
-                        return (
-                          <li key={link.title}>
-                            <a href={link.url}>{link.title}</a>
-                          </li>
-                        );
-                      })
-                    }
-                  </ul>
-                </AccordionPanel>
-              ))
-            }
-          </Accordion>
-        </Box>
+        {directory &&
+          <Box direction="row" responsive={false} separator="bottom">
+            <Accordion
+              icon={false}
+              openMulti={accordionDisabled}
+              disabled={accordionDisabled}
+            >
+              {
+                directory.map((column) => (
+                  <AccordionPanel
+                    key={column.header}
+                    heading={column.header}
+                    active={accordionDisabled}
+                    separator={accordionDisabled ? 'none' : 'bottom'}
+                  >
+                    <ul>
+                      {
+                        column.links.map((link) => {
+                          return (
+                            <li key={link.title}>
+                              <a href={link.url}>{link.title}</a>
+                            </li>
+                          );
+                        })
+                      }
+                    </ul>
+                  </AccordionPanel>
+                ))
+              }
+            </Accordion>
+          </Box>
+        }
         <Box
           className={`${CLASS_ROOT}__social`}
           direction="row"
           align="start"
           justify="between"
-          separator="top"
           pad={{vertical: 'medium'}}
         >
           {logo &&
@@ -154,7 +154,25 @@ export default class Footer extends Component {
 };
 
 Footer.propTypes = {
-};
-
-Footer.defaultProps = {
+  darkTheme: PropTypes.bool,
+  directory: PropTypes.arrayOf(PropTypes.shape({
+    header: PropTypes.string.isRequired,
+    links: PropTypes.arrayOf(PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired
+    })).isRequired
+  })),
+  logo: PropTypes.shape({
+    icon: PropTypes.element.isRequired,
+    url: PropTypes.string.isRequired
+  }),
+  social: PropTypes.arrayOf(PropTypes.shape({
+    icon: PropTypes.element.isRequired,
+    url: PropTypes.string.isRequired
+  })).isRequired,
+  legal: PropTypes.arrayOf(PropTypes.shape({
+    icon: PropTypes.element,
+    title: PropTypes.string.isRequired,
+    url: PropTypes.string
+  })).isRequired
 };

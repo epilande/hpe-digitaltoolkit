@@ -24,6 +24,23 @@ export default class FooterDoc extends Component {
         <section>
           <h2>Footer Options</h2>
           <dl>
+            <dt><code>darkTheme              true|false</code></dt>
+            <dd>Text will be light-colored if true, dark if false.</dd>
+            <dt><code>directory              {`[{
+                          header: {string},
+                          links: [{
+                            title: {string},
+                            url: {string}
+                          }, ...]
+                        },
+                        ...]`}</code></dt>
+            <dd>An array of links. Required.</dd>
+            <dt><code>logo                   {`{icon: {node}, url: {string}}`}</code></dt>
+            <dd>Logo on footer. <code>icon</code> &amp; <code>url</code> required.</dd>
+            <dt><code>social                 {`[{icon: {node}, url: {string}}, ...]`}</code></dt>
+            <dd>Social media icons on footer. <code>icon</code> &amp; <code>url</code> required.</dd>
+            <dt><code>legal                  {`[{icon: {node}, title: {string}, url: {string}}, ...]`}</code></dt>
+            <dd>Legal section on footer. <code>title</code> &amp; <code>url</code> required.</dd>
           </dl>
         </section>
 
@@ -33,6 +50,7 @@ export default class FooterDoc extends Component {
           <Example name="Default" code={
             <Footer
               pad="medium"
+              darkTheme={true}
               directory={[
                 {
                   header: 'Corporate',
@@ -73,14 +91,14 @@ export default class FooterDoc extends Component {
                   ]
                 }
               ]}
-              logo={{icon: <Logo />, url: '#'}}
+              logo={{icon: <Logo reverse={true} />, url: '#'}}
               social={[
                 {icon: <SocialLinkedinIcon />, url: '#'},
                 {icon: <SocialTwitterIcon />, url: '#'},
                 {icon: <SocialFacebookIcon />, url: '#'}
               ]}
               legal={[
-                {icon: '', title: 'United States', url: '#'},
+                {title: 'United States', url: '#'},
                 {title: 'Privacy', url: '#'},
                 {title: 'Terms of Use', url: '#'},
                 {title: 'Cookies', url: '#'},
@@ -140,7 +158,26 @@ export default class FooterDoc extends Component {
                 {icon: <SocialFacebookIcon />, url: '#'}
               ]}
               legal={[
-                {icon: '', title: 'United States', url: '#'},
+                {title: 'United States', url: '#'},
+                {title: 'Privacy', url: '#'},
+                {title: 'Terms of Use', url: '#'},
+                {title: 'Cookies', url: '#'},
+                {title: '© 2016 Hewlett Packard Enterprise'}
+              ]}
+            />
+          } />
+
+          <Example name="Without directory links" code={
+            <Footer
+              pad="medium"
+              logo={{icon: <Logo />, url: '#'}}
+              social={[
+                {icon: <SocialLinkedinIcon />, url: '#'},
+                {icon: <SocialTwitterIcon />, url: '#'},
+                {icon: <SocialFacebookIcon />, url: '#'}
+              ]}
+              legal={[
+                {title: 'United States', url: '#'},
                 {title: 'Privacy', url: '#'},
                 {title: 'Terms of Use', url: '#'},
                 {title: 'Cookies', url: '#'},
