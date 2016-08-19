@@ -9,6 +9,8 @@ import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
 
 const CLASS_ROOT = 'footer';
+const LIGHT_COLORINDEX = 'light-2';
+const DARK_COLORINDEX = 'grey-1';
 
 export default class Footer extends Component {
   constructor () {
@@ -40,6 +42,7 @@ export default class Footer extends Component {
   render () {
     const {
       className,
+      darkTheme,
       directory,
       legal,
       logo,
@@ -54,7 +57,11 @@ export default class Footer extends Component {
     );
 
     return (
-      <Box className={classes} colorIndex="light-2" {...props}>
+      <Box
+        className={classes}
+        colorIndex={darkTheme ? DARK_COLORINDEX : LIGHT_COLORINDEX}
+        {...props}
+      >
         <Box direction="row" responsive={false}>
           <Accordion
             icon={false}
