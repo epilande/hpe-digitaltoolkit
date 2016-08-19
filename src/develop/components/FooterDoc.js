@@ -50,7 +50,6 @@ export default class FooterDoc extends Component {
           <Example name="Default" code={
             <Footer
               pad="medium"
-              darkTheme={true}
               directory={[
                 {
                   header: 'Corporate',
@@ -91,7 +90,7 @@ export default class FooterDoc extends Component {
                   ]
                 }
               ]}
-              logo={{icon: <Logo reverse={true} />, url: '#'}}
+              logo={{icon: <Logo />, url: '#'}}
               social={[
                 {icon: <SocialLinkedinIcon />, url: '#'},
                 {icon: <SocialTwitterIcon />, url: '#'},

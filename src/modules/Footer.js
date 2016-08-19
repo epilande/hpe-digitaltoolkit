@@ -38,6 +38,91 @@ export default class Footer extends Component {
     }
   }
 
+  _renderDirectory (directory, accordionDisabled) {
+    const panels = directory.map((column) => (
+      <AccordionPanel
+        key={column.header}
+        heading={column.header}
+        active={accordionDisabled}
+        separator={accordionDisabled ? 'none' : 'bottom'}
+      >
+        <ul>
+          {
+            column.links.map((link) => {
+              return (
+                <li key={link.title}>
+                  <a href={link.url}>{link.title}</a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </AccordionPanel>
+    ));
+
+    return (
+      <Box direction="row" responsive={false} separator="bottom">
+        <Accordion
+          icon={false}
+          openMulti={accordionDisabled}
+          disabled={accordionDisabled}
+        >
+          {panels}
+        </Accordion>
+      </Box>
+    );
+  }
+
+  _renderLogo (logo) {
+    let content = logo.icon;
+    if (logo.url) {
+      content = <a href={logo.url}>{logo.icon}</a>;
+    }
+    return (
+      <Box className={`${CLASS_ROOT}__logo`}>
+        {content}
+      </Box>
+    );
+  }
+
+  _renderSocial (social) {
+    const socialIcons = social.map((item, key) => (
+      <a key={`social-${key}`} href={item.url}>{item.icon}</a>
+    ));
+    return (
+      <Box direction="row" pad={{between: 'medium'}} responsive={false}>
+        {socialIcons}
+      </Box>
+    );
+  }
+
+  _renderLegal (legal) {
+    const legalList = legal.map((item) => {
+      let content = item.title;
+      if (item.url) {
+        content = <a href={item.url}>{item.icon}{item.title}</a>;
+      }
+      return (
+        <li key={item.title}>
+          {content}
+        </li>
+      );
+    });
+
+    return (
+      <Box
+        className={`${CLASS_ROOT}__legal`}
+        direction="row"
+        justify="end"
+        responsive={false}
+      >
+        <ul>
+          {legalList}
+        </ul>
+      </Box>
+    );
+  }
+
   render () {
     const {
       className,
@@ -64,38 +149,7 @@ export default class Footer extends Component {
         colorIndex={darkTheme ? DARK_COLORINDEX : LIGHT_COLORINDEX}
         {...props}
       >
-        {directory &&
-          <Box direction="row" responsive={false} separator="bottom">
-            <Accordion
-              icon={false}
-              openMulti={accordionDisabled}
-              disabled={accordionDisabled}
-            >
-              {
-                directory.map((column) => (
-                  <AccordionPanel
-                    key={column.header}
-                    heading={column.header}
-                    active={accordionDisabled}
-                    separator={accordionDisabled ? 'none' : 'bottom'}
-                  >
-                    <ul>
-                      {
-                        column.links.map((link) => {
-                          return (
-                            <li key={link.title}>
-                              <a href={link.url}>{link.title}</a>
-                            </li>
-                          );
-                        })
-                      }
-                    </ul>
-                  </AccordionPanel>
-                ))
-              }
-            </Accordion>
-          </Box>
-        }
+        {directory && this._renderDirectory(directory, accordionDisabled)}
         <Box
           className={`${CLASS_ROOT}__social`}
           direction="row"
@@ -103,51 +157,10 @@ export default class Footer extends Component {
           justify="between"
           pad={{vertical: 'medium'}}
         >
-          {logo &&
-            <Box className={`${CLASS_ROOT}__logo`}>
-              <a href={logo.url}>
-                {logo.icon}
-              </a>
-            </Box>
-          }
-          {social &&
-            <Box
-              direction="row"
-              pad={{between: 'medium'}}
-              responsive={false}
-            >
-              {
-                social.map((item, key) => (
-                  <a key={`social-${key}`} href={item.url}>{item.icon}</a>
-                ))
-              }
-            </Box>
-          }
+          {logo && this._renderLogo(logo)}
+          {social && this._renderSocial(social)}
         </Box>
-        {legal &&
-          <Box
-            className={`${CLASS_ROOT}__legal`}
-            direction="row"
-            justify="end"
-            responsive={false}
-          >
-            <ul>
-              {
-                legal.map((item) => {
-                  let content = item.title;
-                  if (item.url) {
-                    content = <a href={item.url}>{item.icon}{item.title}</a>;
-                  }
-                  return (
-                    <li key={item.title}>
-                      {content}
-                    </li>
-                  );
-                })
-              }
-            </ul>
-          </Box>
-        }
+        {legal && this._renderLegal(legal)}
       </Box>
     );
   }
