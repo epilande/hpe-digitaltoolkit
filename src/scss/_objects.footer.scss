@@ -12,12 +12,12 @@
     width: $inuit-base-spacing-unit * 5.5;
 
     @include media-query(palm) {
-      margin-bottom: 24px;
+      margin-bottom: $inuit-base-spacing-unit;
     }
   }
 
   .grommetux-header {
-    padding: 24px;
+    padding: $inuit-base-spacing-unit;
     font-size: $menu-font-size;
     font-weight: 600;
 
@@ -35,12 +35,12 @@
 
     > .grommetux-list-item {
       width: 100%;
-      line-height: 34px;
+      line-height: $inuit-base-spacing-unit * 1.25;
 
       @include media-query(lap-and-up) {
-        width: 200px;
-        margin-bottom: 24px;
-        padding-right: 24px;
+        width: $inuit-base-spacing-unit * 8.75;
+        margin-bottom: $inuit-base-spacing-unit;
+        padding-right: $inuit-base-spacing-unit;
       }
 
       &:last-child {
@@ -60,30 +60,30 @@
 
   .grommetux-collapsible ul {
     @include media-query(palm) {
-      padding: 12px 24px;
+      padding: ($inuit-base-spacing-unit / 2) $inuit-base-spacing-unit;
       background: #fff;
     }
   }
 
   .footer__social {
     @include media-query(palm) {
-      padding: 24px;
+      padding: $inuit-base-spacing-unit;
     }
   }
 
   .footer__legal {
     @include media-query(palm) {
-      padding: 0 24px 24px;
+      padding: 0 $inuit-base-spacing-unit $inuit-base-spacing-unit;
     }
 
     li {
       display: inline-block;
-      margin-right: 5px;
-      font-size: 14px;
+      margin-right: $inuit-base-spacing-unit * 0.25;
+      font-size: $paragraph-small-font-size;
 
       &:after {
         content: '|';
-        margin-left: 5px;
+        margin-left: $inuit-base-spacing-unit * 0.25;
       }
 
       &:last-child {
