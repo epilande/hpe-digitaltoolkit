@@ -1,5 +1,13 @@
 .grommet .footer {
 
+  &.footer--dark {
+    .grommetux-collapsible ul {
+      @include media-query(palm) {
+        background: #404040;
+      }
+    }
+  }
+
   &__logo {
     width: $inuit-base-spacing-unit * 5.5;
 

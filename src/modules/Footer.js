@@ -53,7 +53,10 @@ export default class Footer extends Component {
 
     const classes = classnames(
       CLASS_ROOT,
-      className
+      className,
+      {
+        [`${CLASS_ROOT}--dark`]: darkTheme
+      }
     );
 
     return (
@@ -100,14 +103,14 @@ export default class Footer extends Component {
           separator="top"
           pad={{vertical: 'medium'}}
         >
-          { logo &&
+          {logo &&
             <Box className={`${CLASS_ROOT}__logo`}>
               <a href={logo.url}>
                 {logo.icon}
               </a>
             </Box>
           }
-          { social &&
+          {social &&
             <Box
               direction="row"
               pad={{between: 'medium'}}
@@ -121,7 +124,7 @@ export default class Footer extends Component {
             </Box>
           }
         </Box>
-        { legal &&
+        {legal &&
           <Box
             className={`${CLASS_ROOT}__legal`}
             direction="row"

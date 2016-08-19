@@ -53,14 +53,14 @@ export default class FooterDoc extends Component {
                   header: 'Partners',
                   links: [
                     {title: 'Partners Program', url: '#'},
-                    {title: 'Find a Partner', url: '#'},
+                    {title: 'Find a Partner', url: '#'}
                   ]
                 },
                 {
                   header: 'Communities',
                   links: [
                     {title: 'Developer Forums', url: '#'},
-                    {title: 'Enterprise Business', url: '#'},
+                    {title: 'Enterprise Business', url: '#'}
                   ]
                 },
                 {
@@ -69,7 +69,7 @@ export default class FooterDoc extends Component {
                     {title: 'Enterprise Store', url: '#'},
                     {title: 'Public Sector Store', url: '#'},
                     {title: 'Education & Training', url: '#'},
-                    {title: 'Email Signup', url: '#'},
+                    {title: 'Email Signup', url: '#'}
                   ]
                 }
               ]}
@@ -84,7 +84,7 @@ export default class FooterDoc extends Component {
                 {title: 'Privacy', url: '#'},
                 {title: 'Terms of Use', url: '#'},
                 {title: 'Cookies', url: '#'},
-                {title: '© 2016 Hewlett Packard Enterprise'},
+                {title: '© 2016 Hewlett Packard Enterprise'}
               ]}
             />
           } />
@@ -113,14 +113,14 @@ export default class FooterDoc extends Component {
                   header: 'Partners',
                   links: [
                     {title: 'Partners Program', url: '#'},
-                    {title: 'Find a Partner', url: '#'},
+                    {title: 'Find a Partner', url: '#'}
                   ]
                 },
                 {
                   header: 'Communities',
                   links: [
                     {title: 'Developer Forums', url: '#'},
-                    {title: 'Enterprise Business', url: '#'},
+                    {title: 'Enterprise Business', url: '#'}
                   ]
                 },
                 {
@@ -129,7 +129,7 @@ export default class FooterDoc extends Component {
                     {title: 'Enterprise Store', url: '#'},
                     {title: 'Public Sector Store', url: '#'},
                     {title: 'Education & Training', url: '#'},
-                    {title: 'Email Signup', url: '#'},
+                    {title: 'Email Signup', url: '#'}
                   ]
                 }
               ]}
@@ -144,7 +144,7 @@ export default class FooterDoc extends Component {
                 {title: 'Privacy', url: '#'},
                 {title: 'Terms of Use', url: '#'},
                 {title: 'Cookies', url: '#'},
-                {title: '© 2016 Hewlett Packard Enterprise'},
+                {title: '© 2016 Hewlett Packard Enterprise'}
               ]}
             />
           } />
