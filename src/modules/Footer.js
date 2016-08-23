@@ -4,6 +4,7 @@ import React, { Component, PropTypes } from 'react';
 import classnames from 'classnames';
 import Responsive from 'grommet/utils/Responsive';
 import Box from 'grommet/components/Box';
+import Heading from 'grommet/components/Heading';
 import Accordion from 'grommet/components/Accordion';
 import AccordionPanel from 'grommet/components/AccordionPanel';
 
@@ -16,7 +17,7 @@ export default class Footer extends Component {
     super();
     this._onResponsive = this._onResponsive.bind(this);
     this.state = {
-      accordionDisabled: true
+      isMobile: false
     };
   }
 
@@ -32,19 +33,17 @@ export default class Footer extends Component {
 
   _onResponsive (small) {
     if (small) {
-      this.setState({accordionDisabled: false});
+      this.setState({isMobile: true});
     } else {
-      this.setState({accordionDisabled: true});
+      this.setState({isMobile: false});
     }
   }
 
-  _renderDirectory (directory, accordionDisabled) {
-    const panels = directory.map((column) => (
+  _renderAccordion (directory) {
+    const panels = directory.map(column => (
       <AccordionPanel
         key={column.header}
         heading={column.header}
-        active={accordionDisabled}
-        separator={accordionDisabled ? 'none' : 'bottom'}
       >
         <ul>
           {
@@ -61,14 +60,43 @@ export default class Footer extends Component {
     ));
 
     return (
-      <Box direction="row" responsive={false} separator="bottom">
-        <Accordion
-          icon={false}
-          openMulti={accordionDisabled}
-          disabled={accordionDisabled}
-        >
-          {panels}
-        </Accordion>
+      <Accordion className="directory__accordion" icon={false}>
+        {panels}
+      </Accordion>
+    );
+  }
+
+  _renderNestedList (directory) {
+    return directory.map(column => (
+      <Box key={column.header} className="directory__list">
+        <Heading tag="h4" margin="none">{column.header}</Heading>
+        <ul>
+          {
+            column.links.map((link) => {
+              return (
+                <li key={link.title}>
+                  <a href={link.url}>{link.title}</a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </Box>
+    ));
+  }
+
+  _renderDirectory (directory, isMobile) {
+    return (
+      <Box
+        className={`${CLASS_ROOT}__directory`}
+        direction="row"
+        wrap={true}
+        separator="bottom"
+      >
+        {isMobile ?
+          this._renderAccordion(directory) :
+          this._renderNestedList(directory)
+        }
       </Box>
     );
   }
@@ -133,7 +161,7 @@ export default class Footer extends Component {
       social,
       ...props
     } = this.props;
-    const { accordionDisabled } = this.state;
+    const { isMobile } = this.state;
 
     const classes = classnames(
       CLASS_ROOT,
@@ -149,7 +177,7 @@ export default class Footer extends Component {
         colorIndex={darkTheme ? DARK_COLORINDEX : LIGHT_COLORINDEX}
         {...props}
       >
-        {directory && this._renderDirectory(directory, accordionDisabled)}
+        {directory && this._renderDirectory(directory, isMobile)}
         <Box
           className={`${CLASS_ROOT}__social`}
           direction="row"
