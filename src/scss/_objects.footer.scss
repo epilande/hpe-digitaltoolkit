@@ -2,10 +2,13 @@
 
   &.footer--dark {
     .grommetux-collapsible ul {
-      @include media-query(palm) {
-        background: #404040;
-      }
+      background: #404040;
     }
+  }
+
+  .grommetux-collapsible ul {
+    padding: ($inuit-base-spacing-unit / 2) $inuit-base-spacing-unit;
+    background: #fff;
   }
 
   &__logo {
@@ -16,10 +19,15 @@
     }
   }
 
+  .grommetux-header {
+    padding: $inuit-base-spacing-unit;
+  }
+
   .grommetux-heading {
     padding: 0;
     font-size: $menu-font-size;
     font-weight: 600;
+    line-height: $inuit-base-spacing-unit * 1.25;
   }
 
   .directory__list {
@@ -29,6 +37,8 @@
     line-height: $inuit-base-spacing-unit * 1.25;
   }
 
+  .directory__accordion > li:last-child {
+    border-bottom: none;
   }
 
   ul {
@@ -38,12 +48,8 @@
     a:not(.grommetux-anchor) {
       text-decoration: none;
     }
+  }
 
-  .grommetux-collapsible ul {
-    @include media-query(palm) {
-      padding: ($inuit-base-spacing-unit / 2) $inuit-base-spacing-unit;
-      background: #fff;
-    }
 
   .footer__social {
     @include media-query(palm) {

@@ -60,7 +60,7 @@ export default class Footer extends Component {
     ));
 
     return (
-      <Accordion className="directory__accordion" icon={false}>
+      <Accordion className="directory__accordion">
         {panels}
       </Accordion>
     );
