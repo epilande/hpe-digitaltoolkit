@@ -38,6 +38,21 @@ export default class Patterns extends Component {
                 label: 'Details',
                 href: 'details'
               }]
+            }, {
+              label: 'Themes',
+              links: [{
+                label: 'Grommet',
+                href: '/docs/examples'
+              }, {
+                label: 'Aruba',
+                href: '/docs/aruba/examples'
+              }, {
+                label: 'HPE',
+                href: '/docs/hpe/examples'
+              }, {
+                label: 'HPINC',
+                href: '/docs/hpinc/examples'
+              }]
             }]
           } />
         {children}
