@@ -30,12 +30,18 @@ class NavAnchor extends Component {
     const { router } = this.context;
     let className = this.props.className || '';
     let path = router.createPath(href);
-    if (!/^https?:\/\//i.test(path)) {
+    // Returns true if first char is `/`
+    const isAbsolute = path.split('/')[0] === '';
+    const isExternal = /^https?:\/\//i.test(path);
+    if (!isAbsolute && !isExternal) {
       path = `${routePrefix}${path}`;
     }
     return (
       <Anchor {...props} className={className} href={path}
-        onClick={(event) => this._onClick(event, path)} />
+        onClick={(event) =>
+          // if path is not absolute/external, use react-router to transition
+          (!isAbsolute && !isExternal) && this._onClick(event, path)
+        } />
     );
   }
 };
