@@ -5,6 +5,7 @@ var IndexRoute = Router.IndexRoute;
 
 var Docs = require('./Docs');
 var Home = require('./Home');
+var Patterns = require('./Patterns');
 var Design = require('./design/Design');
 var Develop = require('./develop/Develop');
 var Examples = require('./examples/Examples');
@@ -39,10 +40,12 @@ module.exports = function (rootPath) {
       <IndexRoute component={Home} />
       {Design.routes()}
       {Develop.routes()}
-      {Examples.routes()}
-      {Primary.routes()}
-      {Sub.routes()}
-      {Details.routes()}
+      <Route component={Patterns}>
+        {Examples.routes()}
+        {Primary.routes()}
+        {Sub.routes()}
+        {Details.routes()}
+      </Route>
     </Route>
   );
 };
