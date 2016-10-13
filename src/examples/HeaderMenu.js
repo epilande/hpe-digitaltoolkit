@@ -7,9 +7,7 @@ import Anchor from 'grommet/components/Anchor';
 
 function renderLink (routePrefix, link, index = 0) {
   return (
-    <NavAnchor key={index} routePrefix={routePrefix}  path={link.href}>
-      {link.label}
-    </NavAnchor>
+    <NavAnchor key={index} routePrefix={routePrefix} {...link} />
   );
 }
 
@@ -19,25 +17,25 @@ class NavAnchor extends Component {
     this._onClick = this._onClick.bind(this);
   }
 
-  _onClick (event, href) {
+  _onClick (event, path) {
     event.preventDefault();
-    this.context.router.push(href);
+    this.context.router.push(path);
     if (this.props.onClick) {
       this.props.onClick();
     }
   }
 
   render () {
-    const { path, routePrefix, ...props } = this.props;
+    const { href, routePrefix, ...props } = this.props;
     const { router } = this.context;
     let className = this.props.className || '';
-    let href = router.createPath(path);
-    if (!/^https?:\/\//i.test(href)) {
-      href = `${routePrefix}${href}`;
+    let path = router.createPath(href);
+    if (!/^https?:\/\//i.test(path)) {
+      path = `${routePrefix}${path}`;
     }
     return (
-      <Anchor {...props} className={className} href={href}
-        onClick={(event) => this._onClick(event, href)} />
+      <Anchor {...props} className={className} href={path}
+        onClick={(event) => this._onClick(event, path)} />
     );
   }
 };
@@ -45,7 +43,7 @@ class NavAnchor extends Component {
 NavAnchor.propTypes = {
   ...Anchor.propTypes,
   onClick: PropTypes.func,
-  path: PropTypes.string.isRequired
+  href: PropTypes.string.isRequired
 };
 
 NavAnchor.contextTypes = {
