@@ -32,7 +32,9 @@ class NavAnchor extends Component {
     const { router } = this.context;
     let className = this.props.className || '';
     let href = router.createPath(path);
-    href = `${routePrefix}${href}`;
+    if (!/^https?:\/\//i.test(href)) {
+      href = `${routePrefix}${href}`;
+    }
     return (
       <Anchor {...props} className={className} href={href}
         onClick={(event) => this._onClick(event, href)} />
