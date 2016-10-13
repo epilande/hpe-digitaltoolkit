@@ -12,8 +12,9 @@ if (! Modernizr.flexbox ||
 
 var React = require('react');
 var ReactDOM = require('react-dom');
-var Router = require('react-router').Router;
-var createHistory = require('history').createHistory;
+
+import { Router, useRouterHistory } from 'react-router';
+import { createHistory } from 'history';
 
 var themeGroups = /docs\/([^\/]+)\/?/.exec(window.location.pathname);
 
@@ -41,7 +42,9 @@ var onRouteUpdate = function () {
   }
 };
 
+var history = useRouterHistory(createHistory)();
+
 var element = document.getElementById('content');
-ReactDOM.render(<Router onUpdate={onRouteUpdate} routes={routes} history={createHistory()} />, element);
+ReactDOM.render(<Router onUpdate={onRouteUpdate} routes={routes} history={history} />, element);
 
 document.body.classList.remove('loading');
