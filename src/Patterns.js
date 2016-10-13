@@ -1,14 +1,39 @@
 // (C) Copyright 2014-2016 Hewlett Packard Enterprise Development L.P.
 
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import Header from './examples/Header';
 
 export default class Patterns extends Component {
+
+  constructor(props) {
+    super(props);
+    this.load = this.load.bind(this);
+  }
+
+  componentDidMount() {
+    this.load('https://ssl.www8.hp.com/ie/en/scripts/framework/jquery/v-1-8/jquery.js', () => {
+      this.load('https://ssl.www8.hp.com/ie/en/scripts/framework/jquery/v-1-8/can.jquery.js', () => {
+        this.load('https://ssl.www8.hp.com/caas/header-footer/us/en/hpe/latest.r?contentType=js');
+      });
+    });
+  }
+
+  load(url, cb) {
+    const node = ReactDOM.findDOMNode(this);
+    const element = document.createElement('script');
+    element.src = url;
+    element.addEventListener('load', cb);
+    node.appendChild(element);
+  }
+
   render () {
     const { children } = this.props;
     return (
       <div>
-        <Header external={true}
+        <div id="header" className="header"></div>
+        <Header
+          external={true}
           logoLink={'examples'}
           links={
             [{
@@ -56,6 +81,7 @@ export default class Patterns extends Component {
             }]
           } />
         {children}
+        <div id="footer" className="footer"></div>
       </div>
     );
   }
