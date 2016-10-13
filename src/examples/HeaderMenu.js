@@ -9,6 +9,45 @@ function renderLink (link, index = 0) {
   return <Anchor key={index} href={link.href}>{link.label}</Anchor>;
 }
 
+class NavAnchor extends Component {
+  constructor () {
+    super();
+    this._onClick = this._onClick.bind(this);
+  }
+
+  _onClick (event, href) {
+    event.preventDefault();
+    this.context.router.push(href);
+    if (this.props.onClick) {
+      this.props.onClick();
+    }
+  }
+
+  render () {
+    const { path, routePrefix, ...props } = this.props;
+    const { router } = this.context;
+    let className = this.props.className || '';
+    let href = router.createPath(path);
+    href = `${routePrefix}${href}`;
+    return (
+      <Anchor {...props} className={className} href={href}
+        onClick={(event) => this._onClick(event, href)} />
+    );
+  }
+};
+
+NavAnchor.propTypes = {
+  ...Anchor.propTypes,
+  onClick: PropTypes.func,
+  path: PropTypes.string.isRequired
+};
+
+NavAnchor.contextTypes = {
+  router: PropTypes.object.isRequired
+};
+
+
+
 function renderMenuLinks (props) {
   return (
     <Box appCentered={props.centered}
