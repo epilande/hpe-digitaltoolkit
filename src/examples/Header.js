@@ -6,7 +6,7 @@ import Box from 'grommet/components/Box';
 import Header from 'grommet/components/Header';
 import Title from 'grommet/components/Title';
 import HeaderMenu from './HeaderMenu';
-import Logo from './Logo';
+import GrommetLogo from 'grommet/components/icons/Grommet';
 
 const CLASS_ROOT = 'hpe-header';
 
@@ -49,7 +49,6 @@ export default class HPEHeader extends Component {
         colorIndex={this.props.external ? 'neutral-1' : 'accent-2'} />
     );
 
-    let reverseLogo = false;
     let classes = [CLASS_ROOT];
     let colorIndex = null;
     let titleBoxClass;
@@ -60,7 +59,6 @@ export default class HPEHeader extends Component {
     let menuAfterHeader = headerMenu;
 
     if (this.props.external) {
-      reverseLogo = true;
       classes.push(`${CLASS_ROOT}--external`);
 
       if (!this.state.responsive) {
@@ -97,7 +95,7 @@ export default class HPEHeader extends Component {
           >
             <Box className={titleBoxClass} pad={titleBoxPad}>
               <Title onClick={this._onClickTitle}>
-                <Logo reverse={reverseLogo} />
+                <GrommetLogo a11yTitle=""/>
               </Title>
             </Box>
             {this.props.children}
