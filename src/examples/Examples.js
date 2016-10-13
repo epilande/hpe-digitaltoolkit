@@ -21,7 +21,6 @@ var LinkNextIcon = require('grommet/components/icons/base/LinkNext');
 var CirclePlayIcon = require('grommet/components/icons/base/CirclePlay');
 var Marquee = require('../modules/Marquee');
 var MarqueeParallax = require('../modules/MarqueeParallax');
-var Header = require('./Header');
 
 const grommetPath = 'http://grommet.github.io';
 
@@ -251,38 +250,6 @@ var Examples = React.createClass({
   render: function () {
     return (
       <div>
-        <Header external={true}
-          logoLink={'/docs/hpe/examples'}
-          links={
-            [{
-              label: 'Documentation',
-              links: [{
-                label: 'Accordion',
-                href: 'http://grommet.github.io/docs/accordion/'
-              }, {
-                label: 'Card',
-                href: 'http://grommet.github.io/docs/card/'
-              }, {
-                label: 'Marquee',
-                href: '/docs/hpe/develop/marquee'
-              }, {
-                label: 'Stack',
-                href: '/docs/hpe/develop/stack'
-              }]
-            }, {
-              label: 'Page Templates',
-              links: [{
-                label: 'Primary',
-                href: '/docs/hpe/primary'
-              }, {
-                label: 'Sub',
-                href: '/docs/hpe/sub'
-              }, {
-                label: 'Details',
-                href: '/docs/hpe/details'
-              }]
-            }]
-          } />
         <MarqueeParallax darkTheme={false}
           backgroundImage="/docs/img/MarqueeImage_051916_H.jpg"
           headline="Accelerate your transformation with the cloud"

@@ -14,7 +14,6 @@ const SocialFacebookIcon = require('grommet/components/icons/base/SocialFacebook
 const SocialLinkedinIcon = require('grommet/components/icons/base/SocialLinkedin');
 const LinkNextIcon = require('grommet/components/icons/base/LinkNext');
 const Marquee = require('../modules/Marquee');
-const Header = require('./Header');
 
 const grommetPath = 'http://grommet.github.io';
 
@@ -154,38 +153,6 @@ const Primary = React.createClass({
   render: function () {
     return (
       <div>
-        <Header external={true}
-          logoLink={'/docs/hpe/examples'}
-          links={
-            [{
-              label: 'Documentation',
-              links: [{
-                label: 'Accordion',
-                href: 'http://grommet.github.io/docs/accordion/'
-              }, {
-                label: 'Card',
-                href: 'http://grommet.github.io/docs/card/'
-              }, {
-                label: 'Marquee',
-                href: '/docs/hpe/develop/marquee'
-              }, {
-                label: 'Stack',
-                href: '/docs/hpe/develop/stack'
-              }]
-            }, {
-              label: 'Page Templates',
-              links: [{
-                label: 'Primary',
-                href: '/docs/hpe/primary'
-              }, {
-                label: 'Sub',
-                href: '/docs/hpe/sub'
-              }, {
-                label: 'Details',
-                href: '/docs/hpe/details'
-              }]
-            }]
-          } />
         <Marquee
           separator={true}
           darkTheme={false}
