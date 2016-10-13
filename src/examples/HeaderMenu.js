@@ -1,12 +1,16 @@
 // (C) Copyright 2014-2016 Hewlett-Packard Development Company, L.P.
 
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Menu from 'grommet/components/Menu';
 import Box from 'grommet/components/Box';
 import Anchor from 'grommet/components/Anchor';
 
-function renderLink (link, index = 0) {
-  return <Anchor key={index} href={link.href}>{link.label}</Anchor>;
+function renderLink (routePrefix, link, index = 0) {
+  return (
+    <NavAnchor key={index} routePrefix={routePrefix}  path={link.href}>
+      {link.label}
+    </NavAnchor>
+  );
 }
 
 class NavAnchor extends Component {
@@ -48,7 +52,7 @@ NavAnchor.contextTypes = {
 
 
 
-function renderMenuLinks (props) {
+function renderMenuLinks (props, routePrefix) {
   return (
     <Box appCentered={props.centered}
       className={(props.external && !props.responsive) ? 'flex' : undefined}
@@ -65,12 +69,12 @@ function renderMenuLinks (props) {
                 dropColorIndex={props.colorIndex}
                 dropAlign={{top: 'top', left: 'left'}}>
                 {link.links.map((dropdownLink, linkIndex) =>
-                  renderLink(dropdownLink, linkIndex)
+                  renderLink(routePrefix, dropdownLink, linkIndex)
                 )}
               </Menu>
             );
           } else {
-            return renderLink(link, index);
+            return renderLink(routePrefix, link, index);
           }
         })}
       </Menu>
@@ -78,13 +82,19 @@ function renderMenuLinks (props) {
   );
 }
 
-const HeaderMenu = (props) => {
-  if (props.links.length > 0) {
-    return renderMenuLinks(props);
-  } else {
-    return null;
+class HeaderMenu extends Component {
+  constructor (props) {
+    super(props);
   }
-};
+
+  render() {
+    if (this.props.links.length > 0) {
+      return renderMenuLinks(this.props, this.context.routePrefix);
+    } else {
+      return null;
+    }
+  }
+}
 
 HeaderMenu.propTypes = {
   centered: PropTypes.bool,
@@ -103,6 +113,10 @@ HeaderMenu.propTypes = {
 
 HeaderMenu.defaultProps = {
   links: []
+};
+
+HeaderMenu.contextTypes = {
+  routePrefix: PropTypes.string.isRequired
 };
 
 export default HeaderMenu;
