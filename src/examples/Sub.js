@@ -110,7 +110,7 @@ const SubPage = React.createClass({
           backgroundImage="/docs/img/MarqueeImage_051916_H.jpg"
           label="label"
           headline="Accelerate your transformation with the cloud"
-          subHeadline={<Paragraph margin="none" size="large">
+          subHeadline={<Paragraph margin="small" size="large">
             HPE can help you benefit now from your right mix of cloud
           </Paragraph>}
           link="http://www.grommet.io/docs/"
