@@ -109,27 +109,22 @@ export default class Details extends Component {
                   align="center"
                   direction="row"
                   responsive={false}
-                  colorIndex="light"
                 >
                   <SocialShare
                     type="email"
                     link="http://www.grommet.io/docs/"
-                    colorIndex="grey-4"
                   />
                   <SocialShare
                     type="twitter"
                     link="http://www.grommet.io/docs/"
-                    colorIndex="grey-4"
                   />
                   <SocialShare
                     type="facebook"
                     link="http://www.grommet.io/docs/"
-                    colorIndex="grey-4"
                   />
                   <SocialShare
                     type="linkedin"
                     link="http://www.grommet.io/docs/"
-                    colorIndex="grey-4"
                   />
                 </Box>
               </Box>
@@ -497,6 +492,7 @@ export default class Details extends Component {
             align="center"
             direction="row"
             size={{width: 'xxlarge'}}
+            colorIndex="dark"
           >
             <Box basis="1/2" pad={{horizontal: 'large'}}>
               <Label uppercase>Share the article</Label>
