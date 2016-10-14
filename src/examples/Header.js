@@ -95,7 +95,7 @@ export default class HPEHeader extends Component {
           >
             <Box className={titleBoxClass} pad={titleBoxPad}>
               <Title onClick={this._onClickTitle}>
-                <GrommetLogo a11yTitle=""/>
+                {this.props.logo}
               </Title>
             </Box>
             {this.props.children}
@@ -113,11 +113,13 @@ HPEHeader.propTypes = {
   colorIndex: PropTypes.string,
   external: PropTypes.bool,
   links: HeaderMenu.propTypes.links,
+  logo: PropTypes.node,
   logoLink: PropTypes.string,
   onClickLogo: PropTypes.func
 };
 
 HPEHeader.defaultProps = {
+  logo: <GrommetLogo />,
   logoLink: '/',
   links: []
 };
