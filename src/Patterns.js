@@ -2,6 +2,9 @@
 
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
+import ArubaLogo from 'grommet/components/icons/base/PlatformAruba';
+import HPILogo from 'grommet/components/icons/base/PlatformHpi';
+import GrommetLogo from 'grommet/components/icons/Grommet';
 import Header from './examples/Header';
 
 export default class Patterns extends Component {
@@ -43,12 +46,26 @@ export default class Patterns extends Component {
 
   render () {
     const { children } = this.props;
-    const themeHPE = this.context.routePrefix.split('/')[2] === 'hpe';
+    const currentTheme = this.context.routePrefix.split('/')[2];
+
+    let logo;
+    switch (currentTheme) {
+      case 'aruba':
+        logo = <ArubaLogo size="large" colorIndex="brand" />;
+        break;
+      case 'hpinc':
+        logo = <HPILogo size="large" colorIndex="brand" />;
+        break;
+      default:
+        logo = <GrommetLogo />;
+    }
+
     return (
       <div>
-        {!themeHPE &&
+        {currentTheme !== 'hpe' &&
           <Header
             external={true}
+            logo={logo}
             logoLink={'examples'}
             links={
               [{
